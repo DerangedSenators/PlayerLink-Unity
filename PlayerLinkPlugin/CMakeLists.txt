@@ -13,12 +13,12 @@
 # limitations under the License.
 
 cmake_minimum_required(VERSION 3.19)
-project(
-        PlayerLink-Unity
-        VERSION 1.0.0
-        DESCRIPTION "Bridge between PlayerLink and Unity"
-)
+include_directories(${CMAKE_SOURCE_DIR}/src/client/)
 
 add_library(
         PlayerLink-Unity SHARED
+        playerlink_unity.h
+        playerlink_unity.cpp
 )
+
+TARGET_LINK_LIBRARIES(PlayerLink-Unity PLAYERLINK_CLIENT)
